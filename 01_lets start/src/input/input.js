@@ -17,12 +17,12 @@ function InputElement(props){
 
    return (
       <div className={props.className}>
-         <input className="product__change" type="button" defaultValue="-" onClick={props.changeDown} />
+         <input className="product__change" type="button" defaultValue="-" onClick={props.change} />
          <input className="product__value" type="text" 
             value={props.current} 
             onChange={normalize}
          />
-         <input className="product__change" type="button" defaultValue="+" onClick={props.changeUp} />
+         <input className="product__change" type="button" defaultValue="+" onClick={props.change} />
       </div>
    )
 }

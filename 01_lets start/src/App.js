@@ -20,23 +20,19 @@ export default class extends Component{
     this.setState({products})
   }
 
-  currentChangeDown(index){
+  currentChange(index, event){
     const products = [...this.state.products]
     const product = {...this.state.products[index]}
-    product.current--
-    if(product.current <= 0){
-      product.current = 0
-    }
-    products[index] = product
-    this.setState({products})
-  }
-
-  currentChangeUp(index){
-    const products = [...this.state.products]
-    const product = {...this.state.products[index]}
-    product.current++
-    if(product.current >= product.rest){
-      product.current = product.rest
+    if (event.target.defaultValue == '+'){
+      product.current++
+      if(product.current >= product.rest){
+        product.current = product.rest
+      }
+    } else if (event.target.defaultValue == '-'){
+      product.current--
+      if(product.current <= 0){
+        product.current = 0
+      }
     }
     products[index] = product
     this.setState({products})
@@ -57,8 +53,7 @@ export default class extends Component{
               min={0}
               current={product.current}
               changed={this.currentChangeHandler.bind(this, i)}
-              changeDown={this.currentChangeDown.bind(this, i)}
-              changeUp={this.currentChangeUp.bind(this, i)}
+              change={this.currentChange.bind(this, i)}
             />
           </div>
         )

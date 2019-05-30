@@ -6,7 +6,8 @@ input {
 	color:#12242D;
 	border-radius:.25em;
 	background:transparent;
-	transition:all .100s;
+  transition:all .100s;
+  user-select: none;
 }
 
 .product__value {
