@@ -1,0 +1,25 @@
+input {
+  /* display: block; */
+  border:1px solid #4281A4;
+	font-size:1em;
+	padding:.25em .5em .3125em;
+	color:#12242D;
+	border-radius:.25em;
+	background:transparent;
+	transition:all .100s;
+}
+
+.product__value {
+  max-width: 80px;
+  margin: 0 5px;
+  box-shadow: 0 2px 2px #ccc;
+}
+
+.product__change {
+  min-width: 30px;
+  box-shadow: 0 2px 2px #ccc;
+}
+
+.element-wrapper {
+  min-width: 180px;
+}

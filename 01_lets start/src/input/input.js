@@ -1,0 +1,30 @@
+import React from 'react';
+import './input.css';
+
+
+
+function InputElement(props){
+   const normalize = (event) => {
+      console.log([event.target])
+      let newValue = parseInt(event.target.value) 
+      if (isNaN(newValue) || newValue < props.min){
+         newValue = props.min
+      } else if (newValue > props.max) {
+         newValue = props.max
+      }  
+      props.changed(newValue)
+   }
+
+   return (
+      <div className={props.className}>
+         <input className="product__change" type="button" defaultValue="-" onClick={props.changeDown} />
+         <input className="product__value" type="text" 
+            value={props.current} 
+            onChange={normalize}
+         />
+         <input className="product__change" type="button" defaultValue="+" onClick={props.changeUp} />
+      </div>
+   )
+}
+
+export default InputElement
