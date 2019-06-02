@@ -39,7 +39,7 @@ export default class extends Component{
   }
 
   render(){
-
+    console.log('[App] render')
     const input = (
       this.state.products.map((product, i) => {
         return (

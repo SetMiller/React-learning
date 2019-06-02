@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './input.css';
 
 
 
 function InputElement(props){
+
+   useEffect(() => {
+      console.log('[input] useEffect')
+   })
+
    const normalize = (event) => {
       console.log([event.target])
       let newValue = parseInt(event.target.value) 
