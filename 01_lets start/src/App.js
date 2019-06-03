@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import './App.css';
-import InputElement from './input/input'
+import Inputs from './input/inputs'
+import Summ from './input/summ';
 
 
 export default class extends Component{
@@ -23,12 +24,12 @@ export default class extends Component{
   currentChange(index, event){
     const products = [...this.state.products]
     const product = {...this.state.products[index]}
-    if (event.target.defaultValue == '+'){
+    if (event.target.defaultValue === '+'){
       product.current++
       if(product.current >= product.rest){
         product.current = product.rest
       }
-    } else if (event.target.defaultValue == '-'){
+    } else if (event.target.defaultValue === '-'){
       product.current--
       if(product.current <= 0){
         product.current = 0
@@ -40,35 +41,22 @@ export default class extends Component{
 
   render(){
     console.log('[App] render')
-    const input = (
-      this.state.products.map((product, i) => {
-        return (
-          <div className="product" key={i}>
-            <p>цена товара: {product.price} руб.</p>
-            <p>остаток товара: {product.rest} шт.</p>
-            <p>выбрано товара: {product.current} шт.</p>
-            <InputElement 
-              className="element-wrapper"
-              max={product.rest}
-              min={0}
-              current={product.current}
-              changed={this.currentChangeHandler.bind(this, i)}
-              change={this.currentChange.bind(this, i)}
-            />
-          </div>
-        )
-      })
-    )
+    const input = 
+      <Inputs
+        products = {this.state.products}
+        changed={this.currentChangeHandler.bind(this)}
+        change={this.currentChange.bind(this)}
+      />
 
-    const summ = (
-      this.state.products.reduce((total, product) => {
-        return total + product.price * product.current
-      },0)
-    )
+    const summ = 
+      <Summ
+        className = "summ"
+        products = {this.state.products}
+      />
 
     return (
       <div className="wrapper">
-        <p className="summ">выбрано товара на {summ} руб.</p>
+        {summ}
         {input}
       </div>
     );
