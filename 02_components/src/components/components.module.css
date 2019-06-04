@@ -1,0 +1,15 @@
+.product {
+  display: inline-block;
+  margin: 5px;
+  padding: 5px;
+  border: 1px solid #4281A4;
+  border-radius: 10px;
+  background: #D2DADE;
+  box-shadow: 0 2px 2px #ccc;
+  user-select: none;
+  /* text-align: left; */
+}
+
+.summ {
+  display: block;
+}
