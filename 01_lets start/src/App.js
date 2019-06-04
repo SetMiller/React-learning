@@ -1,10 +1,18 @@
 import React, {Component} from 'react';
-import './App.css';
+import classes from './App.module.css';
 import Inputs from './input/inputs'
 import Summ from './input/summ';
 
 
 export default class extends Component{
+  constructor(){
+    super()
+
+    // binds
+    this.currentChangeHandler = this.currentChangeHandler.bind(this)
+    this.currentChangeHandler = this.currentChange.bind(this)
+  }
+
   state = {
     products: [
       {price: 1000, rest: 10, current:0},
@@ -44,8 +52,8 @@ export default class extends Component{
     const input = 
       <Inputs
         products = {this.state.products}
-        changed={this.currentChangeHandler.bind(this)}
-        change={this.currentChange.bind(this)}
+        changed={this.currentChangeHandler}
+        change={this.currentChange}
       />
 
     const summ = 
@@ -55,7 +63,7 @@ export default class extends Component{
       />
 
     return (
-      <div className="wrapper">
+      <div className={classes['wrapper']}>
         {summ}
         {input}
       </div>

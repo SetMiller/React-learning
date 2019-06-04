@@ -1,8 +1,15 @@
-import React, { Component } from 'react';
-import './input.css';
+import React from 'react';
+import classes from './input.module.css';
 
 
-class InputElement extends Component {
+class InputElement extends React.Component {
+   
+   constructor(){
+      super()
+      
+      // binds
+      this.normalize = this.normalize.bind(this)
+   }
    
    shouldComponentUpdate(nextProps, nextState){
       console.log('[Input.js] shouldComponentUpdate')
@@ -11,20 +18,6 @@ class InputElement extends Component {
       }  else {
       return true
       }
-   }
-
-   getSnapshotBeforeUpdate(prevProps, prevState){
-      console.log('[Input.js] getSnapshotBeforeUpdate')
-      return { message: 'Input Snapshot!'}
-   }
-
-   componentDidUpdate(prevProps, prevState, snapshot){
-      console.log('[Input.js] componentDidUpdate')
-      console.log(snapshot)
-   }
-
-   componentWillUnmount(){
-      console.log('[Input.js] componentWillUnmount')
    }
 
    normalize(event){
@@ -41,13 +34,13 @@ class InputElement extends Component {
    render(){
       console.log('[input] rendering !!!!!!!!!')
       return (
-               <div className={this.props.className}>
-                  <input className="product__change" type="button" defaultValue="-" onClick={this.props.change} />
-                  <input className="product__value" type="text" 
+               <div className={classes['element-wrapper']}>
+                  <input className={classes['product__change']} type="button" defaultValue="-" onClick={this.props.change} />
+                  <input className={classes['product__value']} type="text" 
                      value={this.props.current} 
-                     onChange={this.normalize.bind(this)}
+                     onChange={this.normalize}
                   />
-                  <input className="product__change" type="button" defaultValue="+" onClick={this.props.change} />
+                  <input className={classes['product__change']} type="button" defaultValue="+" onClick={this.props.change} />
                </div>
             )
    }
