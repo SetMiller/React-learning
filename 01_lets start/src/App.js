@@ -52,8 +52,8 @@ export default class extends Component{
     const input = 
       <Inputs
         products = {this.state.products}
-        changed={this.currentChangeHandler}
-        change={this.currentChange}
+        changed={this.currentChangeHandler.bind(this)}
+        change={this.currentChange.bind(this)}
       />
 
     const summ = 

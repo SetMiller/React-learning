@@ -12,7 +12,7 @@ class InputElement extends React.Component {
    }
    
    shouldComponentUpdate(nextProps, nextState){
-      console.log('[Input.js] shouldComponentUpdate')
+      // console.log('[Input.js] shouldComponentUpdate')
       if (nextProps.current === this.props.current){
       return false
       }  else {
@@ -32,7 +32,7 @@ class InputElement extends React.Component {
    }
 
    render(){
-      console.log('[input] rendering !!!!!!!!!')
+      console.log('[input] rendering ###############')
       return (
                <div className={classes['element-wrapper']}>
                   <input className={classes['product__change']} type="button" defaultValue="-" onClick={this.props.change} />
