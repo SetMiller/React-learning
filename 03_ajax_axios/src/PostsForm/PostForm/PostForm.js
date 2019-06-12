@@ -1,6 +1,6 @@
 import React from 'react'
 import classes from './PostForm.module.sass'
-import Aux from '../hoc/Aux'
+import Aux from '../../hoc/Aux'
 
 const postForm = ( props ) => {
   console.log('fullpost render')
